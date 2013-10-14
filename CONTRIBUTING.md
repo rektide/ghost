@@ -26,7 +26,7 @@ If you think you've found a problem with Ghost, or you'd like to make a request 
 
 ### Installation / Setup Instructions
 
-1. Clone the git repo via SSH, not HTTP - we use SSH submodules
+1. Clone the git repo
 2. cd into the project folder
 3. Run `git submodule update --init`
 4. Run `npm install -g grunt-cli`
