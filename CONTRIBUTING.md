@@ -123,7 +123,7 @@ all the guidelines on:
 
 * [code standards](https://github.com/TryGhost/Ghost/wiki/Code-standards)
 * [commit messages](https://github.com/TryGhost/Ghost/wiki/Git-workflow#commit-messages)
-* [cleaning-up history](https://github.com/TryGhost/Ghost/wiki/Git-workflow#clean-history)
+* [cleaning-up history](https://github.com/TryGhost/Ghost/wiki/Git-workflow#clean-up-history)
 * [not breaking the build](https://github.com/TryGhost/Ghost/wiki/Git-workflow#build-passes)
 
 ##### Need Help?
