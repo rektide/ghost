@@ -43,13 +43,11 @@ function validateConfigEnvironment() {
     var envVal = process.env.NODE_ENV || 'undefined',
         hasHostAndPort,
         hasSocket,
-        globalConf,
         config,
         parsedUrl;
 
     try {
-        globalConf = require(configFile);
-        config = globalConf[envVal];
+        config = require(configFile)[envVal];
     } catch (ignore) {
 
     }
