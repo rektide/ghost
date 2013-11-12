@@ -3,6 +3,7 @@ var fs      = require('fs'),
     when    = require('when'),
     errors  = require('./server/errorHandling'),
     path    = require('path'),
+    _       = require("underscore"),
 
     appRoot = path.resolve(__dirname, '../'),
     configexample = path.join(appRoot, 'config.example.js'),
@@ -84,16 +85,6 @@ function validateConfigEnvironment() {
     return when.resolve(config);
 }
 
-function assignConfig(config) {
-    /*jslint forin: true */
-    var i;
-    for (i in config) {
-        if (!Object[i]) {
-            exports[i] = config[i];
-        }
-    }
-}
-
 exports.loadConfig = function () {
     var loaded = when.defer(),
         pendingConfig;
@@ -103,7 +94,7 @@ exports.loadConfig = function () {
         if (!configExists) {
             pendingConfig = writeConfigFile();
         }
-        when(pendingConfig).then(validateConfigEnvironment).then(assignConfig).then(loaded.resolve).otherwise(loaded.reject);
+        when(pendingConfig).then(validateConfigEnvironment).then(_.extend.bind(null, exports)).then(loaded.resolve).otherwise(loaded.reject);
     });
     return loaded.promise;
 };
