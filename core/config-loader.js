@@ -87,9 +87,12 @@ function validateConfigEnvironment() {
 }
 
 function assignConfig(config) {
+    /*jslint forin: true */
     var i;
     for (i in config) {
-        exports[i] = config[i];
+        if (!Object[i]) {
+            exports[i] = config[i];
+        }
     }
 }
 
